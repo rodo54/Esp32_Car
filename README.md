@@ -1,5 +1,6 @@
 # ESP32 RC Car
 Command a low cost Remote Control Car using your cell phone.
+![prototype](images/prototype.jpg)
 
 The main objective of this project is the construction of a very low cost remote control car, but with high performance.
 ## Hardware
