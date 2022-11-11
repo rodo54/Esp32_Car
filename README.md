@@ -3,6 +3,8 @@ Command a low cost Remote Control Car using your cell phone.
 ![prototype](images/prototype.jpg)
 
 The main objective of this project is the construction of a very low cost remote control car, but with high performance.
+
+See the [video](https://vimeo.com/769987253) of the first Test on the field.
 ## Hardware
 * ESP32 board loaded with the Micropython firmware.
 * L298N H-Brigge.
