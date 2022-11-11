@@ -6,6 +6,7 @@ The main objective of this project is the construction of a very low cost remote
 ## Hardware
 * ESP32 board loaded with the Micropython firmware.
 * L298N H-Brigge.
+* 2 x cheap dc motors.
 * SG90 Angular servo.
 * 3x 18650 Li-ion batteries.
 * Chassis: For my prototype I have used the excellent work of [Antonio Garcia](https://www.thingiverse.com/thing:4892947) with some modifications (mounting of motors and their gears)
