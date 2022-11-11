@@ -16,4 +16,9 @@ See the [video](https://vimeo.com/769987253) of the first Test on the field.
 * optional: 2 white leds, transistor and resistors as shown on the [wiring image](https://github.com/rodo54/Esp32_Car/blob/main/images/Car-Esp32_w.png).
 ## Software
 * The python files included in this repo.
+## How to Drive
+1. Turn on the power switch. A slight movement in the front wheels is the sign that your car is ready.
+2. Open the *Bluefruit* app and select the **Car-ESP32** device.
+3. Choose **Controller** and then **Control Pad**
 
+![ControlPad](images/ControlPad.png)
