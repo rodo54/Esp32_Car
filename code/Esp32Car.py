@@ -117,12 +117,19 @@ class Car:
         if bttn != None: self.cmd(bttn)
         else:
             if dSpeed == 0: # decrement
-                if self.speed-2 >=0: self.speed -= 2
-                if self.speed+2 <=0: self.speed += 2
+                if self.speed >0: self.speed -= max(0, 1+self.speed //10)
+                else: self.speed -= min(0, self.speed //10)
+            elif dSpeed == 1:
+                self.speed *= -1	# Break
+                time.sleep(0.1)
+                self.speed = 0
+                
             else:   self.speed += dSpeed
+            
             if dSteer == 0 and self.speed != 0 : # decrement
-                if self.angle - servoCenter >= 2: self.angle -= 2
-                if self.angle - servoCenter <= 2: self.angle += 2
+                adif = self.angle - servoCenter
+                if adif >0: self.angle -= min(adif, 1+(adif* abs(self.speed))//1000)
+                else: self.angle += min(abs(adif), 1+(abs(adif* self.speed))//1000)
             else:   self.angle += dSteer
         # limits:
         if self.speed > 100: self.speed = 100
@@ -159,6 +166,7 @@ def exit(s='disconnected'):
     running = False
     
 def run():
+    global bttn
     ble = bluetooth.BLE()
     uart = BLEUART(ble)
     myServo = Servo(Pin(23))
@@ -196,6 +204,8 @@ def run():
             elif data.decode()[2]=='8': dSteer = 2 * int(data.decode()[3])
             else:
                 bttn = str(data.decode()[2])
+                
+        if car.speed!=0 and dSpeed!=0 and sign(dSpeed)!=sign(car.speed): dSpeed = 1	# Break
 
     uart.irq(handler=on_rx)
     
@@ -212,6 +222,7 @@ def run():
         
                     
         car.update(dSpeed, dSteer, bttn)
+        bttn = None
         
     car.update(0,0,'3')	# STOP !
     uart.close()
