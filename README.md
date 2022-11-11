@@ -22,3 +22,10 @@ See the [video](https://vimeo.com/769987253) of the first Test on the field.
 3. Choose **Controller** and then **Control Pad**
 
 ![ControlPad](images/ControlPad.png)
+
+### Using the accelerometer (experimental)
+3a. You **must** put your cell phone in **landscape** position!
+
+4a. Choose **Controller** and then **Accelerometer**
+
+(I'm still not satisfied with this mode, try it and send me your feedback)
